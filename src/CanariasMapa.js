@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-//import "./CanariasMapa.css"; // si quieres agregar estilos luego
 
 export default function CanariasMapa() {
   const [selected, setSelected] = useState(null);
@@ -10,26 +9,32 @@ export default function CanariasMapa() {
     <div style={{ display: "flex", gap: "20px" }}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1200 600"
-        width="600"
+        width="976.80688"
+        height="409.89056"
+        viewBox="0 0 777.74173 413.26299"
         style={{ border: "1px solid #ccc" }}
       >
-        {/* Aquí puedes pegar tu SVG completo de Wikipedia */}
-        {/* Ejemplo de 2 municipios: */}
-        <path
-          d="M100 100 L200 100 L200 200 L100 200 Z"
-          fill={selected === "Municipio 1" ? "#FFD21F" : "#2997df"}
-          stroke="#000"
-          onClick={() => handleClick("Municipio 1")}
-          style={{ cursor: "pointer" }}
-        />
-        <path
-          d="M250 100 L350 100 L350 200 L250 200 Z"
-          fill={selected === "Municipio 2" ? "#FFD21F" : "#2997df"}
-          stroke="#000"
-          onClick={() => handleClick("Municipio 2")}
-          style={{ cursor: "pointer" }}
-        />
+        <g id="Provincia de Las Palmas" transform="matrix(1.037049,0,0,1.037049,227.665,-16.72604)">
+          <g id="Fuerteventura">
+            <path
+              id="Antigua"
+              d="M 543.10748,241.21657 L 542.86748,241.6966 L 543.58747,243.37672 L 542.62749,245.05683 L 543.34747,245.53687 L 542.62749,247.457 L 542.1475,246.97696 L 541.42752,247.21698 L 539.74756,252.97738 L 537.8276,255.61756 L 538.30759,257.29767 L 537.58761,259.45782 L 536.38763,260.89792 L 536.86762,261.13794 L 536.14764,262.33802 L 534.46768,262.57804 L 534.70767,264.73818 L 533.02771,267.37837 L 534.22768,270.49858 L 533.98769,271.69866 L 533.02771,272.89874 L 533.26771,273.61879 L 532.78772,273.13876 L 531.58774,273.85881 L 529.90778,278.89916 L 529.1878,279.61921 L 529.42779,278.89916 L 517.66806,260.41789 L 502.06842,251.05724 L 502.54841,247.93703 L 504.94836,244.5768 L 504.22837,237.85634 L 504.94836,236.41624 L 510.22824,234.73612 L 513.34816,235.21616 L 517.90806,234.01607 L 518.62804,234.73612 L 520.308,234.73612 L 522.94794,233.77606 L 524.6279,233.77606 L 528.9478,236.65626 L 532.30773,237.3763 L 533.5077,238.57639 L 543.10748,241.21657 Z"
+              fill={selected === "Antigua" ? "#FFD21F" : "#fff8dc"}
+              stroke="#000"
+              onClick={() => handleClick("Antigua")}
+              style={{ cursor: "pointer" }}
+            />
+            <path
+              id="Betancuria"
+              d="M 495.82857,224.89545 L 498.9485,225.6155 L 501.82843,224.89545 L 503.50839,226.09553 L 504.94836,226.09553 L 505.66834,228.49569 L 505.18835,229.93579 L 510.22824,234.73612 L 504.94836,236.41624 L 504.22837,237.85634 L 504.94836,244.5768 L 502.54841,247.93703 L 502.06842,251.05724 L 497.26854,250.3372 L 496.30856,251.53728 L 493.42862,248.65708 L 489.58871,248.65708 L 488.38874,247.21698 L 488.38874,246.25691 L 487.18877,245.05683 L 483.34886,244.81682 L 482.62887,244.5768 L 482.62887,243.61673 L 484.30883,241.21657 L 484.06884,239.29644 L 484.78882,237.61632 L 493.90861,229.21574 L 495.82857,224.89545 Z"
+              fill={selected === "Betancuria" ? "#FFD21F" : "#fff8dc"}
+              stroke="#000"
+              onClick={() => handleClick("Betancuria")}
+              style={{ cursor: "pointer" }}
+            />
+            {/* Añade aquí todos los demás municipios siguiendo el mismo patrón */}
+          </g>
+        </g>
       </svg>
 
       <div>
