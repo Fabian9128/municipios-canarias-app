@@ -1,4 +1,3 @@
-import React from "react";
 import CanariasMapa from "./CanariasMapa";
 
 function App() {
