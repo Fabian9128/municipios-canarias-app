@@ -12,8 +12,16 @@ export default function CanariasMapa()
   const [startOffset, setStartOffset] = useState({ x: 0, y: 0 });
   const [visited, setVisited] = useState([]);
 
+  // ESTADOS PARA DRAG DEL MODAL
+  const [isDraggingModal, setIsDraggingModal] = useState(false);
+  const [startDragModal, setStartDragModal] = useState({ x: 0, y: 0 });
+  const [modalOffset, setModalOffset] = useState({ x: 0, y: 0 });
+
   const baseViewBox = { x: -150, y: -50, width: 1100, height: 500 };
   const popupRef = useRef(null);
+  const isMobile = window.innerWidth <= 768;
+  const headerHeight = 56;
+  const modalMargin = 16;
 
   useEffect(() => {
     // Cargar visitados desde localStorage
@@ -40,7 +48,7 @@ export default function CanariasMapa()
   const vbY = baseViewBox.y + Math.min(Math.max(offset.y, minOffsetY), maxOffsetY);
   const vb = `${vbX} ${vbY} ${vbWidth} ${vbHeight}`;
 
-  // Eventos de arrastre
+  // Drag del mapa
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartDrag({ x: e.clientX, y: e.clientY });
@@ -57,26 +65,34 @@ export default function CanariasMapa()
       y: Math.min(Math.max(startOffset.y + dy, minOffsetY), maxOffsetY),
     });
   };
-
   const handleMouseUp = () => setIsDragging(false);
   const handleMouseLeave = () => setIsDragging(false);
 
+  // Drag del modal
+  const handleMouseDownModal = (e) => {
+    setIsDraggingModal(true);
+    setStartDragModal({ x: e.clientX, y: e.clientY });
+  };
+  const handleMouseMoveModal = (e) => {
+    if (!isDraggingModal) return;
+    const dx = e.clientX - startDragModal.x;
+    const dy = e.clientY - startDragModal.y;
+    setModalOffset(prev => ({ x: prev.x + dx, y: prev.y + dy }));
+    setStartDragModal({ x: e.clientX, y: e.clientY });
+  };
+  const handleMouseUpModal = () => setIsDraggingModal(false);
+
   const handleToggleVisited = (name) => {
-    let updated;
-    if (visited.includes(name)) {
-      updated = visited.filter(m => m !== name);
-    } else {
-      updated = [...visited, name];
-    }
+    const updated = visited.includes(name)
+      ? visited.filter(m => m !== name)
+      : [...visited, name];
     setVisited(updated);
     localStorage.setItem("municipiosVisitados", JSON.stringify(updated));
   };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (popupRef.current && !popupRef.current.contains(e.target)) {
-        setSelected(null);
-      }
+      if (popupRef.current && !popupRef.current.contains(e.target)) setSelected(null);
     };
     if (selected) document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -92,15 +108,10 @@ export default function CanariasMapa()
           textAlign: "center",
           borderBottom: "8px solid",
           borderImage: `
-            linear-gradient(
-              to right,
-              #ffffff 0%,
-              #ffffff 33.3%,
-              #2997df 33.3%,
-              #2997df 66.6%,
-              #ffd21f 66.6%,
-              #ffd21f 100%
-            ) 1
+            linear-gradient(to right,
+              #ffffff 0%, #ffffff 33.3%,
+              #2997df 33.3%, #2997df 66.6%,
+              #ffd21f 66.6%, #ffd21f 100%) 1
           `
         }}
       >
@@ -170,51 +181,54 @@ export default function CanariasMapa()
           return (
             <div
               ref={popupRef}
+              onMouseDown={handleMouseDownModal}
+              onMouseMove={handleMouseMoveModal}
+              onMouseUp={handleMouseUpModal}
+              onMouseLeave={handleMouseUpModal}
               style={{
                 position: "absolute",
-                top: "30%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "300px",
-                padding: "16px",
+                top: `${headerHeight + modalMargin + modalOffset.y}px`,
+                left: `calc(50% + ${modalOffset.x}px)`,
+                transform: "translateX(-50%)",
+                width: isMobile ? "90%" : "300px",
+                maxWidth: isMobile ? "300px" : "400px",
+                maxHeight: isMobile ? `calc(100vh - ${headerHeight + modalMargin * 2}px)` : "80vh",
+                overflowY: "auto",
+                padding: isMobile ? "12px" : "16px",
                 border: "1px solid #ddd",
                 background: "#e0dedeff",
                 color: "#031069ff",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
                 borderRadius: "8px",
-                zIndex: 10
+                zIndex: 10,
+                boxSizing: "border-box",
+                cursor: "move"
               }}
             >
-              <h2>{selectedMunicipio.name}</h2>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                <div style={{ width: "60px", height: "60px" }}>
-                  <img
-                    src={selectedMunicipio.escudo}
-                    alt={`Escudo de ${selectedMunicipio.name}`}
-                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                  />
+              <h2 style={{ fontSize: "1.2rem", marginBottom: "8px" }}>{selectedMunicipio.name}</h2>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
+                <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
+                  <img src={selectedMunicipio.escudo} alt={`Escudo de ${selectedMunicipio.name}`} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                 </div>
-                <div style={{ width: "60px", height: "60px" }}>
-                  <img
-                    src={selectedMunicipio.bandera}
-                    alt={`Bandera de ${selectedMunicipio.name}`}
-                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                  />
+                <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
+                  <img src={selectedMunicipio.bandera} alt={`Bandera de ${selectedMunicipio.name}`} style={{ width: "100%", height: "100%", objectFit: "contain" }} />
                 </div>
               </div>
-              <p>{selectedMunicipio.descripcion}</p>
-              <p><b>Población:</b> {selectedMunicipio.poblacion} habitantes</p>
-              <p><b>Superficie:</b> {selectedMunicipio.superficie} km²</p>
+              <p style={{ marginTop: "8px", fontSize: "0.9rem" }}>{selectedMunicipio.descripcion}</p>
+              <p style={{ fontSize: "0.9rem" }}><b>Población:</b> {selectedMunicipio.poblacion} habitantes</p>
+              <p style={{ fontSize: "0.9rem" }}><b>Superficie:</b> {selectedMunicipio.superficie} km²</p>
               <button
                 onClick={() => handleToggleVisited(selectedMunicipio.name)}
                 style={{
                   marginTop: "8px",
                   padding: "6px 12px",
+                  width: "100%",
                   backgroundColor: visited.includes(selectedMunicipio.name) ? "#28a745" : "#007bff",
                   color: "#fff",
                   border: "none",
                   borderRadius: "4px",
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  fontSize: "1rem"
                 }}
               >
                 {visited.includes(selectedMunicipio.name) ? "Visitado ✅" : "Marcar como visitado"}
