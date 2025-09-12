@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import islas from "./assets/data/municipios-coordenadas.json";
+import municipios from "./assets/data/municipios-datos.json";
 
 export default function CanariasMapa()
 {
@@ -12,6 +13,8 @@ export default function CanariasMapa()
 
   const baseViewBox = { x: -150, y: -50, width: 1100, height: 500 };
 
+  const popupRef = useRef(null);
+
   const handleZoomIn = () => setZoom(z => Math.min(z * 1.2, 5));
   const handleZoomOut = () => setZoom(z => Math.max(z / 1.2, 1));
 
@@ -21,7 +24,6 @@ export default function CanariasMapa()
 
   // Limites máximos para offset
   const shiftX = 20;
-
   const maxOffsetX = (baseViewBox.width - vbWidth) / 2 + shiftX;
   const minOffsetX = -(baseViewBox.width - vbWidth) / 2 + shiftX;
   const maxOffsetY = (baseViewBox.height - vbHeight) / 2;
@@ -53,6 +55,21 @@ export default function CanariasMapa()
   const handleMouseUp = () => setIsDragging(false);
   const handleMouseLeave = () => setIsDragging(false);
 
+  // Cerrar popup si clic fuera
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (popupRef.current && !popupRef.current.contains(e.target)) {
+        setSelected(null);
+      }
+    };
+    if (selected) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selected]);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
       <header
@@ -78,7 +95,7 @@ export default function CanariasMapa()
         <h1>MUNICIPIOS CANARIAS</h1>
       </header>
 
-      <main style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+      <main style={{ display: "flex", flex: 1, overflow: "hidden", position: "relative" }}>
         <div
           style={{
             flex: 1,
@@ -91,7 +108,6 @@ export default function CanariasMapa()
             `,
             backgroundSize: "60px 60px",
           }}
-
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -123,7 +139,7 @@ export default function CanariasMapa()
           <div
             style={{
               position: "absolute",
-              top: 120,
+              top: 50,
               left: 10,
               display: "flex",
               flexDirection: "column",
@@ -135,22 +151,51 @@ export default function CanariasMapa()
           </div>
         </div>
 
-        <aside
-          style={{
-            width: "250px",
-            padding: "16px",
-            borderLeft: "1px solid #ddd",
-            background: "#f9f9f9",
-            color: "#031069ff",
-          }}
-        >
-          <h2>Información</h2>
-          {selected ? (
-            <p>Has seleccionado: <b>{selected}</b></p>
-          ) : (
-            <p>Haz click en un municipio</p>
-          )}
-        </aside>
+        {selected && (() => {
+          const selectedMunicipio = municipios.find(m => m.name === selected);
+          if (!selectedMunicipio) return null;
+
+          return (
+            <div
+              ref={popupRef}
+              style={{
+                position: "absolute",
+                top: "30%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                width: "300px",
+                padding: "16px",
+                border: "1px solid #ddd",
+                background: "#e0dedeff",
+                color: "#031069ff",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                borderRadius: "8px",
+                zIndex: 10
+              }}
+            >
+              <h2>{selectedMunicipio.name}</h2>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <div style={{ width: "60px", height: "60px" }}>
+                  <img
+                    src={selectedMunicipio.escudo}
+                    alt={`Escudo de ${selectedMunicipio.name}`}
+                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                  />
+                </div>
+                <div style={{ width: "60px", height: "60px" }}>
+                  <img
+                    src={selectedMunicipio.bandera}
+                    alt={`Bandera de ${selectedMunicipio.name}`}
+                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                  />
+                </div>
+              </div>
+              <p>{selectedMunicipio.descripcion}</p>
+              <p><b>Población:</b> {selectedMunicipio.poblacion} habitantes</p>
+              <p><b>Superficie:</b> {selectedMunicipio.superficie} km²</p>
+            </div>
+          );
+        })()}
       </main>
     </div>
   );
