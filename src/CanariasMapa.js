@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import islas from "./assets/data/municipios-coordenadas.json";
+import municipios from "./assets/data/municipios-datos.json";
 
 export default function CanariasMapa()
 {
@@ -12,8 +13,10 @@ export default function CanariasMapa()
 
   const baseViewBox = { x: -150, y: -50, width: 1100, height: 500 };
 
-  const handleZoomIn = () => setZoom((z) => Math.min(z * 1.2, 5));
-  const handleZoomOut = () => setZoom((z) => Math.max(z / 1.2, 1));
+  const popupRef = useRef(null);
+
+  const handleZoomIn = () => setZoom(z => Math.min(z * 1.2, 5));
+  const handleZoomOut = () => setZoom(z => Math.max(z / 1.2, 1));
 
   // Tamaño del viewBox actual según zoom
   const vbWidth = baseViewBox.width / zoom;
@@ -52,6 +55,21 @@ export default function CanariasMapa()
   const handleMouseUp = () => setIsDragging(false);
   const handleMouseLeave = () => setIsDragging(false);
 
+  // Cerrar popup si clic fuera
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (popupRef.current && !popupRef.current.contains(e.target)) {
+        setSelected(null);
+      }
+    };
+    if (selected) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [selected]);
+
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
       <header
@@ -71,13 +89,13 @@ export default function CanariasMapa()
               #ffd21f 66.6%,
               #ffd21f 100%
             ) 1
-          `,
+          `
         }}
       >
         <h1>MUNICIPIOS CANARIAS</h1>
       </header>
 
-      <main style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+      <main style={{ display: "flex", flex: 1, overflow: "hidden", position: "relative" }}>
         <div
           style={{
             flex: 1,
@@ -89,7 +107,6 @@ export default function CanariasMapa()
               radial-gradient(circle at 40px 40px, rgba(255,255,255,0.1) 2px, transparent 0)
             `,
             backgroundSize: "60px 60px",
-            position: "relative",
           }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -119,7 +136,6 @@ export default function CanariasMapa()
             ))}
           </svg>
 
-          {/* Botones de zoom */}
           <div
             style={{
               position: "absolute",
@@ -130,54 +146,56 @@ export default function CanariasMapa()
               gap: "4px",
             }}
           >
-            <button onClick={handleZoomIn} style={{ padding: "4px 8px" }}>
-              ➕ Zoom in
-            </button>
-            <button onClick={handleZoomOut} style={{ padding: "4px 8px" }}>
-              ➖ Zoom out
-            </button>
+            <button onClick={handleZoomIn} style={{ padding: "4px 8px" }}>➕ Zoom in</button>
+            <button onClick={handleZoomOut} style={{ padding: "4px 8px" }}>➖ Zoom out</button>
           </div>
+        </div>
 
-          {/* Popup flotante */}
-          {selected && (
+        {selected && (() => {
+          const selectedMunicipio = municipios.find(m => m.name === selected);
+          if (!selectedMunicipio) return null;
+
+          return (
             <div
+              ref={popupRef}
               style={{
                 position: "absolute",
-                top: "50%",
+                top: "30%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                background: "#fff",
-                padding: "20px",
-                borderRadius: "12px",
-                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-                zIndex: 10,
-                minWidth: "250px",
-                textAlign: "center",
+                width: "300px",
+                padding: "16px",
+                border: "1px solid #ddd",
+                background: "#e0dedeff",
+                color: "#031069ff",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+                borderRadius: "8px",
+                zIndex: 10
               }}
             >
-              <h2 style={{ margin: "0 0 10px 0", color: "#031069ff" }}>
-                {selected}
-              </h2>
-              <p>
-                Información
-              </p>
-              <button
-                onClick={() => setSelected(null)}
-                style={{
-                  marginTop: "10px",
-                  padding: "6px 12px",
-                  border: "none",
-                  borderRadius: "8px",
-                  background: "#2997df",
-                  color: "#fff",
-                  cursor: "pointer",
-                }}
-              >
-                Cerrar
-              </button>
+              <h2>{selectedMunicipio.name}</h2>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <div style={{ width: "60px", height: "60px" }}>
+                  <img
+                    src={selectedMunicipio.escudo}
+                    alt={`Escudo de ${selectedMunicipio.name}`}
+                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                  />
+                </div>
+                <div style={{ width: "60px", height: "60px" }}>
+                  <img
+                    src={selectedMunicipio.bandera}
+                    alt={`Bandera de ${selectedMunicipio.name}`}
+                    style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                  />
+                </div>
+              </div>
+              <p>{selectedMunicipio.descripcion}</p>
+              <p><b>Población:</b> {selectedMunicipio.poblacion} habitantes</p>
+              <p><b>Superficie:</b> {selectedMunicipio.superficie} km²</p>
             </div>
-          )}
-        </div>
+          );
+        })()}
       </main>
     </div>
   );

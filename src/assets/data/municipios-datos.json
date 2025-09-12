@@ -1,0 +1,714 @@
+[
+  {
+    "name": "Antigua",
+    "escudo": "assets/images/escudos/antigua.png",
+    "bandera": "assets/images/banderas/antigua.png",
+    "descripcion": "Municipio situado en el centro de Fuerteventura, con núcleos como Caleta de Fuste.",
+    "poblacion": 13745,
+    "superficie": 250.56
+  },
+  {
+    "name": "Betancuria",
+    "escudo": "assets/images/escudos/betancuria.png",
+    "bandera": "assets/images/banderas/betancuria.png",
+    "descripcion": "Municipio histórico, antigua capital de la isla, con gran valor cultural y natural.",
+    "poblacion": 789,
+    "superficie": 103.64
+  },
+  {
+    "name": "La Oliva",
+    "escudo": "assets/images/escudos/laoliva.png",
+    "bandera": "assets/images/banderas/laoliva.png",
+    "descripcion": "Municipio al norte de Fuerteventura, incluye la isla de Lobos y zonas turísticas como Corralejo.",
+    "poblacion": 29693,
+    "superficie": 356.13
+  },
+  {
+    "name": "Pájara",
+    "escudo": "assets/images/escudos/pajara.png",
+    "bandera": "assets/images/banderas/pajara.png",
+    "descripcion": "Municipio del sur de la isla, incluye la península de Jandía, con amplias zonas rurales.",
+    "poblacion": 20751,
+    "superficie": 383.52
+  },
+  {
+    "name": "Puerto del Rosario",
+    "escudo": "assets/images/escudos/puertodelrosario.png",
+    "bandera": "assets/images/banderas/puertodelrosario.png",
+    "descripcion": "Capital insular y municipio más poblado de Fuerteventura.",
+    "poblacion": 42024,
+    "superficie": 289.95
+  },
+  {
+    "name": "Tuineje",
+    "escudo": "assets/images/escudos/tuineje.png",
+    "bandera": "assets/images/banderas/tuineje.png",
+    "descripcion": "Municipio ubicado al sureste de la isla con varios núcleos poblacionales dispersos.",
+    "poblacion": 15572,
+    "superficie": 275.94
+  },
+  {
+    "name": "Isla de Lobos",
+    "escudo": "assets/images/escudos/pajara.png",
+    "bandera": "assets/images/banderas/pajara.png",
+    "descripcion": "Municipio más grande de Canarias en superficie.",
+    "poblacion": 21000,
+    "superficie": 383
+  },
+  {
+    "name": "Arrecife",
+    "escudo": "assets/images/escudos/arrecife.png",
+    "bandera": "assets/images/banderas/arrecife.png",
+    "descripcion": "Capital de Lanzarote, municipio más poblado de la isla.",
+    "poblacion": 68169,
+    "superficie": 22.7
+  },
+  {
+    "name": "Haría",
+    "escudo": "assets/images/escudos/haria.png",
+    "bandera": "assets/images/banderas/haria.png",
+    "descripcion": "Municipio al norte con zonas costeras y núcleos rurales.",
+    "poblacion": 5382,
+    "superficie": 106.6
+  },
+  {
+    "name": "San Bartolomé",
+    "escudo": "assets/images/escudos/sanbartolome.png",
+    "bandera": "assets/images/banderas/sanbartolome.png",
+    "descripcion": "Municipio central, con núcleo urbano de Playa Honda.",
+    "poblacion": 18989,
+    "superficie": 40.9
+  },
+  {
+    "name": "Teguise",
+    "escudo": "assets/images/escudos/teguise.png",
+    "bandera": "assets/images/banderas/teguise.png",
+    "descripcion": "Municipio más extenso de Lanzarote, incluye La Graciosa y zonas turísticas como Costa Teguise.",
+    "poblacion": 23848,
+    "superficie": 264
+  },
+  {
+    "name": "Tías",
+    "escudo": "assets/images/escudos/tias.png",
+    "bandera": "assets/images/banderas/tias.png",
+    "descripcion": "Municipio turístico, con Puerto del Carmen como núcleo importante.",
+    "poblacion": 21433,
+    "superficie": 64.6
+  },
+  {
+    "name": "Tinajo",
+    "escudo": "assets/images/escudos/tinajo.png",
+    "bandera": "assets/images/banderas/tinajo.png",
+    "descripcion": "Municipio ubicado al oeste, con zonas volcánicas y parques naturales.",
+    "poblacion": 7000,
+    "superficie": 135.3
+  },
+  {
+    "name": "Yaiza",
+    "escudo": "assets/images/escudos/yaiza.png",
+    "bandera": "assets/images/banderas/yaiza.jpg",
+    "descripcion": "Municipio del sur, famoso por playas y zonas turísticas como Playa Blanca.",
+    "poblacion": 18113,
+    "superficie": 211.8
+  },
+    {
+    "name": "Agaete",
+    "escudo": "assets/images/escudos/agaete.png",
+    "bandera": "assets/images/banderas/agaete.png",
+    "descripcion": "Municipio del noroeste, conocido por el Puerto de las Nieves y el Valle de Agaete.",
+    "poblacion": 5600,
+    "superficie": 45.5
+  },
+  {
+    "name": "Agüimes",
+    "escudo": "assets/images/escudos/aguimes.png",
+    "bandera": "assets/images/banderas/aguimes.png",
+    "descripcion": "Municipio del sureste, famoso por su casco histórico y la playa de Arinaga.",
+    "poblacion": 32000,
+    "superficie": 79.3
+  },
+  {
+    "name": "Artenara",
+    "escudo": "assets/images/escudos/artenara.png",
+    "bandera": "assets/images/banderas/artenara.png",
+    "descripcion": "Municipio más alto de Gran Canaria, con casas cueva y miradores espectaculares.",
+    "poblacion": 1200,
+    "superficie": 66.7
+  },
+  {
+    "name": "Arucas",
+    "escudo": "assets/images/escudos/arucas.png",
+    "bandera": "assets/images/banderas/arucas.png",
+    "descripcion": "Ciudad del norte, famosa por su iglesia neogótica y la fábrica de ron Arehucas.",
+    "poblacion": 39000,
+    "superficie": 33.0
+  },
+  {
+    "name": "Firgas",
+    "escudo": "assets/images/escudos/firgas.png",
+    "bandera": "assets/images/banderas/firgas.png",
+    "descripcion": "Conocida como la Villa del Agua, famosa por su paseo de las islas y manantiales.",
+    "poblacion": 7400,
+    "superficie": 15.8
+  },
+  {
+    "name": "Gáldar",
+    "escudo": "assets/images/escudos/galdar.png",
+    "bandera": "assets/images/banderas/galdar.png",
+    "descripcion": "Antigua capital aborigen, con la Cueva Pintada y un casco histórico emblemático.",
+    "poblacion": 24500,
+    "superficie": 61.6
+  },
+  {
+    "name": "Ingenio",
+    "escudo": "assets/images/escudos/ingenio.png",
+    "bandera": "assets/images/banderas/ingenio.png",
+    "descripcion": "Municipio del este con tradición artesanal, agrícola y el barrio de Carrizal.",
+    "poblacion": 31000,
+    "superficie": 38.2
+  },
+  {
+    "name": "Mogán",
+    "escudo": "assets/images/escudos/mogan.png",
+    "bandera": "assets/images/banderas/mogan.png",
+    "descripcion": "Municipio del suroeste, con el Puerto de Mogán y playas turísticas como Amadores.",
+    "poblacion": 22000,
+    "superficie": 172.4
+  },
+  {
+    "name": "Moya",
+    "escudo": "assets/images/escudos/moya.png",
+    "bandera": "assets/images/banderas/moya.png",
+    "descripcion": "Municipio del norte, famoso por Los Tilos de Moya y sus bizcochos.",
+    "poblacion": 7700,
+    "superficie": 31.9
+  },
+  {
+    "name": "Las Palmas de Gran Canaria",
+    "escudo": "assets/images/escudos/laspalmas.png",
+    "bandera": "assets/images/banderas/laspalmas.png",
+    "descripcion": "Capital de la isla y ciudad más poblada de Canarias. Destaca su playa de Las Canteras.",
+    "poblacion": 378000,
+    "superficie": 100.6
+  },
+  {
+    "name": "San Bartolomé de Tirajana",
+    "escudo": "assets/images/escudos/sanbartolometirajana.png",
+    "bandera": "assets/images/banderas/sanbartolometirajana.png",
+    "descripcion": "Municipio más extenso de la isla, con Maspalomas y Playa del Inglés como referentes turísticos.",
+    "poblacion": 57000,
+    "superficie": 333.1
+  },
+  {
+    "name": "San Nicolás de Tolentino",
+    "escudo": "assets/images/escudos/laaldea.png",
+    "bandera": "assets/images/banderas/laaldea.png",
+    "descripcion": "Municipio del oeste, aislado y agrícola, famoso por la playa de Güi-Güi.",
+    "poblacion": 7800,
+    "superficie": 123.6
+  },
+  {
+    "name": "Santa Brígida",
+    "escudo": "assets/images/escudos/santabrigida.png",
+    "bandera": "assets/images/banderas/santabrigida.png",
+    "descripcion": "Municipio de interior, con viñedos y casas señoriales.",
+    "poblacion": 19500,
+    "superficie": 23.8
+  },
+  {
+    "name": "Santa Lucía de Tirajana",
+    "escudo": "assets/images/escudos/santaluciatirajana.png",
+    "bandera": "assets/images/banderas/santaluciatirajana.png",
+    "descripcion": "Importante municipio del sureste, con Vecindario como núcleo principal.",
+    "poblacion": 78000,
+    "superficie": 61.6
+  },
+  {
+    "name": "Santa María de Guía de Gran Canaria",
+    "escudo": "assets/images/escudos/guia.png",
+    "bandera": "assets/images/banderas/guia.png",
+    "descripcion": "Municipio del norte, famoso por el queso de flor y su casco histórico.",
+    "poblacion": 14000,
+    "superficie": 42.6
+  },
+  {
+    "name": "Tejeda",
+    "escudo": "assets/images/escudos/tejeda.png",
+    "bandera": "assets/images/banderas/tejeda.png",
+    "descripcion": "Municipio de montaña, famoso por el Roque Nublo y sus almendros en flor.",
+    "poblacion": 1900,
+    "superficie": 103.3
+  },
+  {
+    "name": "Telde",
+    "escudo": "assets/images/escudos/telde.png",
+    "bandera": "assets/images/banderas/telde.png",
+    "descripcion": "Segunda ciudad más poblada de Gran Canaria, con historia prehispánica y playas como Melenara.",
+    "poblacion": 102000,
+    "superficie": 102.4
+  },
+  {
+    "name": "Teror",
+    "escudo": "assets/images/escudos/teror.png",
+    "bandera": "assets/images/banderas/teror.png",
+    "descripcion": "Famoso por la Virgen del Pino, patrona de la diócesis, y su arquitectura tradicional.",
+    "poblacion": 13000,
+    "superficie": 25.7
+  },
+  {
+    "name": "Valleseco",
+    "escudo": "assets/images/escudos/valleseco.gif",
+    "bandera": "assets/images/banderas/valleseco.jpg",
+    "descripcion": "Municipio de interior, verde y agrícola, con gran producción de manzanas.",
+    "poblacion": 4000,
+    "superficie": 22.1
+  },
+  {
+    "name": "Valsequillo de Gran Canaria",
+    "escudo": "assets/images/escudos/valsequillo.png",
+    "bandera": "assets/images/banderas/valsequillo.png",
+    "descripcion": "Municipio de medianías, agrícola y ganadero, famoso por la floración de almendros.",
+    "poblacion": 9400,
+    "superficie": 39.2
+  },
+  {
+    "name": "Vega de San Mateo",
+    "escudo": "assets/images/escudos/sanmateo.png",
+    "bandera": "assets/images/banderas/sanmateo.png",
+    "descripcion": "Municipio de interior con fuerte tradición agrícola y mercadillos populares.",
+    "poblacion": 7400,
+    "superficie": 37.9
+  },
+    {
+    "name": "Frontera",
+    "escudo": "assets/images/escudos/frontera.png",
+    "bandera": "assets/images/banderas/frontera.png",
+    "descripcion": "Municipio de El Hierro, conocido por el mirador de La Peña y los Roques de Salmor.",
+    "poblacion": 4000,
+    "superficie": 80.66
+  },
+  {
+    "name": "El Pinar",
+    "escudo": "assets/images/escudos/elpinar.png",
+    "bandera": "assets/images/banderas/elpinar.png",
+    "descripcion": "Municipio más meridional de España, con el Faro de Orchilla y la Restinga.",
+    "poblacion": 1800,
+    "superficie": 80.66
+  },
+  {
+    "name": "Valverde",
+    "escudo": "assets/images/escudos/valverde.png",
+    "bandera": "assets/images/banderas/valverde.png",
+    "descripcion": "Capital de El Hierro, situada en el noreste de la isla.",
+    "poblacion": 5000,
+    "superficie": 103.65
+  },
+  {
+    "name": "Barlovento",
+    "escudo": "assets/images/escudos/barlovento.png",
+    "bandera": "assets/images/banderas/barlovento.png",
+    "descripcion": "Municipio del norte de La Palma, famoso por su embalse y zonas naturales.",
+    "poblacion": 1900,
+    "superficie": 43.55
+  },
+  {
+    "name": "Breña Alta",
+    "escudo": "assets/images/escudos/brenaalta.png",
+    "bandera": "assets/images/banderas/brenaalta.png",
+    "descripcion": "Municipio cercano a Santa Cruz de La Palma, con gran tradición agrícola.",
+    "poblacion": 7000,
+    "superficie": 30.01
+  },
+  {
+    "name": "Breña Baja",
+    "escudo": "assets/images/escudos/brenabaja.png",
+    "bandera": "assets/images/banderas/brenabaja.png",
+    "descripcion": "Municipio turístico en la zona este de La Palma, con playas como Los Cancajos.",
+    "poblacion": 5500,
+    "superficie": 14.13
+  },
+  {
+    "name": "Fuencaliente",
+    "escudo": "assets/images/escudos/fuencaliente.png",
+    "bandera": "assets/images/banderas/fuencaliente.png",
+    "descripcion": "Municipio del sur de La Palma, famoso por sus volcanes y salinas.",
+    "poblacion": 1800,
+    "superficie": 56.42
+  },
+  {
+    "name": "Garafía",
+    "escudo": "assets/images/escudos/garafia.png",
+    "bandera": "assets/images/banderas/garafia.png",
+    "descripcion": "Municipio norteño de La Palma, donde se encuentra el Observatorio del Roque de los Muchachos.",
+    "poblacion": 1500,
+    "superficie": 103.76
+  },
+  {
+    "name": "Los Llanos de Aridane",
+    "escudo": "assets/images/escudos/losllanos.png",
+    "bandera": "assets/images/banderas/losllanos.png",
+    "descripcion": "El municipio más poblado de La Palma, centro económico y cultural del oeste.",
+    "poblacion": 20000,
+    "superficie": 35.79
+  },
+  {
+    "name": "El Paso",
+    "escudo": "assets/images/escudos/elpaso.png",
+    "bandera": "assets/images/banderas/elpaso.png",
+    "descripcion": "Municipio central de La Palma, atravesado por la Caldera de Taburiente.",
+    "poblacion": 8000,
+    "superficie": 135.92
+  },
+  {
+    "name": "Puntagorda",
+    "escudo": "assets/images/escudos/puntagorda.png",
+    "bandera": "assets/images/banderas/puntagorda.png",
+    "descripcion": "Municipio agrícola y vinícola en el noroeste de La Palma.",
+    "poblacion": 2200,
+    "superficie": 31.10
+  },
+  {
+    "name": "Puntallana",
+    "escudo": "assets/images/escudos/puntallana.png",
+    "bandera": "assets/images/banderas/puntallana.png",
+    "descripcion": "Municipio del noreste de La Palma, con el Cubo de La Galga como atractivo natural.",
+    "poblacion": 2500,
+    "superficie": 35.10
+  },
+  {
+    "name": "San Andrés y Sauces",
+    "escudo": "assets/images/escudos/sauces.png",
+    "bandera": "assets/images/banderas/sauces.png",
+    "descripcion": "Municipio del noreste de La Palma, famoso por Los Tilos y el Charco Azul.",
+    "poblacion": 4500,
+    "superficie": 42.70
+  },
+  {
+    "name": "Santa Cruz de La Palma",
+    "escudo": "assets/images/escudos/santacruzdelapalma.png",
+    "bandera": "assets/images/banderas/santacruzdelapalma.png",
+    "descripcion": "Capital de La Palma, con un casco histórico de gran valor patrimonial.",
+    "poblacion": 15000,
+    "superficie": 43.38
+  },
+  {
+    "name": "Tazacorte",
+    "escudo": "assets/images/escudos/tazacorte.png",
+    "bandera": "assets/images/banderas/tazacorte.png",
+    "descripcion": "Municipio costero del oeste de La Palma, conocido por su platanera y playas.",
+    "poblacion": 4800,
+    "superficie": 11.37
+  },
+  {
+    "name": "Tijarafe",
+    "escudo": "assets/images/escudos/tijarafe.png",
+    "bandera": "assets/images/banderas/tijarafe.png",
+    "descripcion": "Municipio del noroeste de La Palma, con espectaculares vistas al Atlántico.",
+    "poblacion": 2700,
+    "superficie": 53.76
+  },
+  {
+    "name": "Villa de Mazo",
+    "escudo": "assets/images/escudos/mazo.png",
+    "bandera": "assets/images/banderas/mazo.png",
+    "descripcion": "Municipio en el este de La Palma, conocido por sus fiestas de Corpus Christi.",
+    "poblacion": 4700,
+    "superficie": 71.17
+  },
+  {
+    "name": "Agulo",
+    "escudo": "assets/images/escudos/agulo.png",
+    "bandera": "assets/images/banderas/agulo.png",
+    "descripcion": "Pequeño municipio de La Gomera, con miradores espectaculares como Abrante.",
+    "poblacion": 1100,
+    "superficie": 25.39
+  },
+  {
+    "name": "Alajeró",
+    "escudo": "assets/images/escudos/alajero.png",
+    "bandera": "assets/images/banderas/alajero.png",
+    "descripcion": "Municipio de La Gomera, donde se encuentra el aeropuerto insular.",
+    "poblacion": 2000,
+    "superficie": 49.43
+  },
+  {
+    "name": "Hermigua",
+    "escudo": "assets/images/escudos/hermigua.png",
+    "bandera": "assets/images/banderas/hermigua.png",
+    "descripcion": "Municipio del norte de La Gomera, con el valle de Hermigua y el Parque de Garajonay.",
+    "poblacion": 1800,
+    "superficie": 39.67
+  },
+  {
+    "name": "San Sebastián de la Gomera",
+    "escudo": "assets/images/escudos/sansebastian.png",
+    "bandera": "assets/images/banderas/sansebastian.png",
+    "descripcion": "Capital de La Gomera, puerto histórico de paso de Cristóbal Colón.",
+    "poblacion": 9000,
+    "superficie": 113.59
+  },
+  {
+    "name": "Vallehermoso",
+    "escudo": "assets/images/escudos/vallehermoso.png",
+    "bandera": "assets/images/banderas/vallehermoso.png",
+    "descripcion": "Municipio más extenso de La Gomera, dentro del Parque Nacional de Garajonay.",
+    "poblacion": 3000,
+    "superficie": 109.32
+  },
+  {
+    "name": "Valle Gran Rey",
+    "escudo": "assets/images/escudos/vallegranrey.png",
+    "bandera": "assets/images/banderas/vallegranrey.png",
+    "descripcion": "Municipio turístico de La Gomera, con playas y barrancos emblemáticos.",
+    "poblacion": 4000,
+    "superficie": 32.36
+  },
+    {
+    "name": "Adeje",
+    "escudo": "assets/images/escudos/adeje.png",
+    "bandera": "assets/images/banderas/adeje.png",
+    "descripcion": "Municipio del sur de Tenerife, conocido por playas y zonas turísticas como Costa Adeje.",
+    "poblacion": 52000,
+    "superficie": 105.95
+  },
+  {
+    "name": "Arafo",
+    "escudo": "assets/images/escudos/arafo.png",
+    "bandera": "assets/images/banderas/arafo.png",
+    "descripcion": "Municipio del sureste, famoso por su arquitectura tradicional y festividades locales.",
+    "poblacion": 9000,
+    "superficie": 33.50
+  },
+  {
+    "name": "Arico",
+    "escudo": "assets/images/escudos/arico.png",
+    "bandera": "assets/images/banderas/arico.png",
+    "descripcion": "Municipio del sureste de Tenerife, con costa volcánica y paisajes rurales.",
+    "poblacion": 12000,
+    "superficie": 178.76
+  },
+  {
+    "name": "Arona",
+    "escudo": "assets/images/escudos/arona.png",
+    "bandera": "assets/images/banderas/arona.png",
+    "descripcion": "Municipio turístico del sur, con playas populares como Los Cristianos y Playa de las Américas.",
+    "poblacion": 92000,
+    "superficie": 81.79
+  },
+  {
+    "name": "Buenavista del Norte",
+    "escudo": "assets/images/escudos/buenavista.png",
+    "bandera": "assets/images/banderas/buenavista.png",
+    "descripcion": "Municipio del noroeste, conocido por el Parque Rural de Teno y el litoral escarpado.",
+    "poblacion": 6000,
+    "superficie": 91.12
+  },
+  {
+    "name": "Candelaria",
+    "escudo": "assets/images/escudos/candelaria.png",
+    "bandera": "assets/images/banderas/candelaria.png",
+    "descripcion": "Municipio del este, famoso por la Basílica de la Virgen de Candelaria.",
+    "poblacion": 26000,
+    "superficie": 49.18
+  },
+  {
+    "name": "Fasnia",
+    "escudo": "assets/images/escudos/fasnia.png",
+    "bandera": "assets/images/banderas/fasnia.png",
+    "descripcion": "Pequeño municipio del sureste, con entorno rural y paisaje volcánico.",
+    "poblacion": 3700,
+    "superficie": 45.50
+  },
+  {
+    "name": "Garachico",
+    "escudo": "assets/images/escudos/garachico.png",
+    "bandera": "assets/images/banderas/garachico.png",
+    "descripcion": "Municipio histórico del noroeste, con piscinas naturales y casco antiguo pintoresco.",
+    "poblacion": 5500,
+    "superficie": 29.57
+  },
+  {
+    "name": "Granadilla",
+    "escudo": "assets/images/escudos/granadilla.png",
+    "bandera": "assets/images/banderas/granadilla.png",
+    "descripcion": "Municipio sureño, con el Parque Natural de Montaña Roja y costa turística.",
+    "poblacion": 27000,
+    "superficie": 148.48
+  },
+  {
+    "name": "La Guancha",
+    "escudo": "assets/images/escudos/laguancha.png",
+    "bandera": "assets/images/banderas/laguancha.png",
+    "descripcion": "Municipio norteño, con arquitectura tradicional y entorno agrícola.",
+    "poblacion": 6000,
+    "superficie": 23.49
+  },
+  {
+    "name": "Guía de Isora",
+    "escudo": "assets/images/escudos/guia.png",
+    "bandera": "assets/images/banderas/guia.png",
+    "descripcion": "Municipio del suroeste, con playas y zonas rurales en el interior.",
+    "poblacion": 25000,
+    "superficie": 143.70
+  },
+  {
+    "name": "Güímar",
+    "escudo": "assets/images/escudos/guimar.png",
+    "bandera": "assets/images/banderas/guimar.png",
+    "descripcion": "Municipio del este, conocido por las Pirámides de Güímar y zonas agrícolas.",
+    "poblacion": 20000,
+    "superficie": 102.65
+  },
+  {
+    "name": "Icod de los Vinos",
+    "escudo": "assets/images/escudos/icod.png",
+    "bandera": "assets/images/banderas/icod.png",
+    "descripcion": "Municipio del noroeste, famoso por el Drago Milenario y el casco histórico.",
+    "poblacion": 23000,
+    "superficie": 95.90
+  },
+  {
+    "name": "La Matanza",
+    "escudo": "assets/images/escudos/lamatanza.png",
+    "bandera": "assets/images/banderas/lamatanza.png",
+    "descripcion": "Municipio norteño, con paisaje agrícola y litoral volcánico.",
+    "poblacion": 8500,
+    "superficie": 23.60
+  },
+  {
+    "name": "La Orotava",
+    "escudo": "assets/images/escudos/laorotava.png",
+    "bandera": "assets/images/banderas/laorotava.png",
+    "descripcion": "Municipio norte, famoso por su casco histórico, jardines y festividades culturales.",
+    "poblacion": 42000,
+    "superficie": 207.31
+  },
+  {
+    "name": "Puerto de la Cruz",
+    "escudo": "assets/images/escudos/puertodelacruz.png",
+    "bandera": "assets/images/banderas/puertodelacruz.png",
+    "descripcion": "Municipio turístico del norte, conocido por Loro Parque y playas volcánicas.",
+    "poblacion": 32000,
+    "superficie": 31.25
+  },
+  {
+    "name": "Los Realejos",
+    "escudo": "assets/images/escudos/losrealejos.png",
+    "bandera": "assets/images/banderas/losrealejos.png",
+    "descripcion": "Municipio del norte, con tradiciones culturales y paisajes agrícolas.",
+    "poblacion": 38000,
+    "superficie": 57.74
+  },
+  {
+    "name": "El Rosario",
+    "escudo": "assets/images/escudos/elrosario.png",
+    "bandera": "assets/images/banderas/elrosario.png",
+    "descripcion": "Municipio del este, con playas, montañas y entorno residencial.",
+    "poblacion": 38000,
+    "superficie": 39.43
+  },
+  {
+    "name": "San Cristóbal de La Laguna",
+    "escudo": "assets/images/escudos/lalaguna.png",
+    "bandera": "assets/images/banderas/lalaguna.png",
+    "descripcion": "Municipio histórico y cultural del norte, patrimonio mundial y sede universitaria.",
+    "poblacion": 155000,
+    "superficie": 102.05
+  },
+  {
+    "name": "San Juan de la Rambla",
+    "escudo": "assets/images/escudos/sanjuan.png",
+    "bandera": "assets/images/banderas/sanjuan.png",
+    "descripcion": "Pequeño municipio norteño, con costa escarpada y paisaje agrícola.",
+    "poblacion": 5000,
+    "superficie": 20.87
+  },
+  {
+    "name": "San Miguel de Abona",
+    "escudo": "assets/images/escudos/sanmiguel.png",
+    "bandera": "assets/images/banderas/sanmiguel.png",
+    "descripcion": "Municipio del sur, con costa turística y entorno agrícola.",
+    "poblacion": 21000,
+    "superficie": 42.04
+  },
+  {
+    "name": "Santa Cruz de Tenerife",
+    "escudo": "assets/images/escudos/santacruz.png",
+    "bandera": "assets/images/banderas/santacruz.png",
+    "descripcion": "Capital de Tenerife, ciudad portuaria y centro económico y cultural de la isla.",
+    "poblacion": 205000,
+    "superficie": 150.56
+  },
+  {
+    "name": "Santa Úrsula",
+    "escudo": "assets/images/escudos/santaursula.png",
+    "bandera": "assets/images/banderas/santaursula.png",
+    "descripcion": "Municipio del norte, con paisaje agrícola y zonas residenciales.",
+    "poblacion": 22000,
+    "superficie": 22.59
+  },
+  {
+    "name": "Santiago del Teide",
+    "escudo": "assets/images/escudos/santiagoteide.png",
+    "bandera": "assets/images/banderas/santiagoteide.png",
+    "descripcion": "Municipio del oeste, con paisajes volcánicos y turismo rural.",
+    "poblacion": 12000,
+    "superficie": 52.21
+  },
+  {
+    "name": "El Sauzal",
+    "escudo": "assets/images/escudos/elsauzal.png",
+    "bandera": "assets/images/banderas/elsauzal.png",
+    "descripcion": "Municipio norteño, con litoral y paisaje agrícola, conocido por viñedos.",
+    "poblacion": 9500,
+    "superficie": 18.31
+  },
+  {
+    "name": "Los Silos",
+    "escudo": "assets/images/escudos/lossilos.png",
+    "bandera": "assets/images/banderas/lossilos.png",
+    "descripcion": "Municipio noroeste, con litoral volcánico y entorno rural.",
+    "poblacion": 5500,
+    "superficie": 24.23
+  },
+  {
+    "name": "Tacoronte",
+    "escudo": "assets/images/escudos/tacoronte.png",
+    "bandera": "assets/images/banderas/tacoronte.png",
+    "descripcion": "Municipio norte, conocido por vinos, arquitectura tradicional y paisaje agrícola.",
+    "poblacion": 23000,
+    "superficie": 56.60
+  },
+  {
+    "name": "El Tanque",
+    "escudo": "assets/images/escudos/eltanque.png",
+    "bandera": "assets/images/banderas/eltanque.png",
+    "descripcion": "Municipio noroeste, con montañas y litoral volcánico.",
+    "poblacion": 5500,
+    "superficie": 23.35
+  },
+  {
+    "name": "Tegueste",
+    "escudo": "assets/images/escudos/tegueste.png",
+    "bandera": "assets/images/banderas/tegueste.png",
+    "descripcion": "Municipio del norte, pequeño y tradicional, rodeado de agricultura y paisaje volcánico.",
+    "poblacion": 11000,
+    "superficie": 26.41
+  },
+  {
+    "name": "La Victoria",
+    "escudo": "assets/images/escudos/lavictoria.png",
+    "bandera": "assets/images/banderas/lavictoria.png",
+    "descripcion": "Municipio norte, con entorno agrícola y montañoso.",
+    "poblacion": 9000,
+    "superficie": 18.36
+  },
+  {
+    "name": "Vilaflor",
+    "escudo": "assets/images/escudos/vilaflor.png",
+    "bandera": "assets/images/banderas/vilaflor.png",
+    "descripcion": "Municipio más alto de Tenerife, con paisaje volcánico y pinar emblemático.",
+    "poblacion": 1700,
+    "superficie": 56.26
+  }
+]
