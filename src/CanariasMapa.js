@@ -10,10 +10,16 @@ export default function CanariasMapa()
   const [isDragging, setIsDragging] = useState(false);
   const [startDrag, setStartDrag] = useState({ x: 0, y: 0 });
   const [startOffset, setStartOffset] = useState({ x: 0, y: 0 });
+  const [visited, setVisited] = useState([]);
 
   const baseViewBox = { x: -150, y: -50, width: 1100, height: 500 };
-
   const popupRef = useRef(null);
+
+  useEffect(() => {
+    // Cargar visitados desde localStorage
+    const stored = localStorage.getItem("municipiosVisitados");
+    if (stored) setVisited(JSON.parse(stored));
+  }, []);
 
   const handleZoomIn = () => setZoom(z => Math.min(z * 1.2, 5));
   const handleZoomOut = () => setZoom(z => Math.max(z / 1.2, 1));
@@ -55,19 +61,25 @@ export default function CanariasMapa()
   const handleMouseUp = () => setIsDragging(false);
   const handleMouseLeave = () => setIsDragging(false);
 
-  // Cerrar popup si clic fuera
+  const handleToggleVisited = (name) => {
+    let updated;
+    if (visited.includes(name)) {
+      updated = visited.filter(m => m !== name);
+    } else {
+      updated = [...visited, name];
+    }
+    setVisited(updated);
+    localStorage.setItem("municipiosVisitados", JSON.stringify(updated));
+  };
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (popupRef.current && !popupRef.current.contains(e.target)) {
         setSelected(null);
       }
     };
-    if (selected) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    if (selected) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [selected]);
 
   return (
@@ -125,7 +137,7 @@ export default function CanariasMapa()
                   <path
                     key={m.name}
                     d={m.path}
-                    fill={selected === m.name ? "#FFD21F" : "#cce"}
+                    fill={visited.includes(m.name) ? "#28a745" : selected === m.name ? "#FFD21F" : "#cce"}
                     stroke="#336"
                     strokeWidth="2"
                     onClick={() => setSelected(m.name)}
@@ -193,6 +205,20 @@ export default function CanariasMapa()
               <p>{selectedMunicipio.descripcion}</p>
               <p><b>Población:</b> {selectedMunicipio.poblacion} habitantes</p>
               <p><b>Superficie:</b> {selectedMunicipio.superficie} km²</p>
+              <button
+                onClick={() => handleToggleVisited(selectedMunicipio.name)}
+                style={{
+                  marginTop: "8px",
+                  padding: "6px 12px",
+                  backgroundColor: visited.includes(selectedMunicipio.name) ? "#28a745" : "#007bff",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "4px",
+                  cursor: "pointer"
+                }}
+              >
+                {visited.includes(selectedMunicipio.name) ? "Visitado ✅" : "Marcar como visitado"}
+              </button>
             </div>
           );
         })()}
