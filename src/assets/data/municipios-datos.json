@@ -466,7 +466,7 @@
     {
     "name": "Adeje",
     "escudo": "assets/images/escudos/adeje.png",
-    "bandera": "assets/images/banderas/adeje.png",
+    "bandera": "assets/images/banderas/adeje.jfif",
     "descripcion": "Municipio del sur de Tenerife, conocido por playas y zonas turísticas como Costa Adeje.",
     "poblacion": 52000,
     "superficie": 105.95
@@ -522,7 +522,7 @@
   {
     "name": "Garachico",
     "escudo": "assets/images/escudos/garachico.png",
-    "bandera": "assets/images/banderas/garachico.png",
+    "bandera": "assets/images/banderas/garachico.jpg",
     "descripcion": "Municipio histórico del noroeste, con piscinas naturales y casco antiguo pintoresco.",
     "poblacion": 5500,
     "superficie": 29.57
@@ -537,16 +537,16 @@
   },
   {
     "name": "La Guancha",
-    "escudo": "assets/images/escudos/laguancha.png",
-    "bandera": "assets/images/banderas/laguancha.png",
+    "escudo": "assets/images/escudos/guancha.png",
+    "bandera": "assets/images/banderas/guancha.png",
     "descripcion": "Municipio norteño, con arquitectura tradicional y entorno agrícola.",
     "poblacion": 6000,
     "superficie": 23.49
   },
   {
     "name": "Guía de Isora",
-    "escudo": "assets/images/escudos/guia.png",
-    "bandera": "assets/images/banderas/guia.png",
+    "escudo": "assets/images/escudos/guiaisora.png",
+    "bandera": "assets/images/banderas/guiaisora.png",
     "descripcion": "Municipio del suroeste, con playas y zonas rurales en el interior.",
     "poblacion": 25000,
     "superficie": 143.70
@@ -554,7 +554,7 @@
   {
     "name": "Güímar",
     "escudo": "assets/images/escudos/guimar.png",
-    "bandera": "assets/images/banderas/guimar.png",
+    "bandera": "assets/images/banderas/guimar.jpg",
     "descripcion": "Municipio del este, conocido por las Pirámides de Güímar y zonas agrícolas.",
     "poblacion": 20000,
     "superficie": 102.65
@@ -569,40 +569,40 @@
   },
   {
     "name": "La Matanza",
-    "escudo": "assets/images/escudos/lamatanza.png",
-    "bandera": "assets/images/banderas/lamatanza.png",
+    "escudo": "assets/images/escudos/matanza.png",
+    "bandera": "assets/images/banderas/matanza.png",
     "descripcion": "Municipio norteño, con paisaje agrícola y litoral volcánico.",
     "poblacion": 8500,
     "superficie": 23.60
   },
   {
     "name": "La Orotava",
-    "escudo": "assets/images/escudos/laorotava.png",
-    "bandera": "assets/images/banderas/laorotava.png",
+    "escudo": "assets/images/escudos/orotava.png",
+    "bandera": "assets/images/banderas/orotava.jpg",
     "descripcion": "Municipio norte, famoso por su casco histórico, jardines y festividades culturales.",
     "poblacion": 42000,
     "superficie": 207.31
   },
   {
     "name": "Puerto de la Cruz",
-    "escudo": "assets/images/escudos/puertodelacruz.png",
-    "bandera": "assets/images/banderas/puertodelacruz.png",
+    "escudo": "assets/images/escudos/puertocruz.png",
+    "bandera": "assets/images/banderas/puertocruz.png",
     "descripcion": "Municipio turístico del norte, conocido por Loro Parque y playas volcánicas.",
     "poblacion": 32000,
     "superficie": 31.25
   },
   {
     "name": "Los Realejos",
-    "escudo": "assets/images/escudos/losrealejos.png",
-    "bandera": "assets/images/banderas/losrealejos.png",
+    "escudo": "assets/images/escudos/realejos.png",
+    "bandera": "assets/images/banderas/realejos.png",
     "descripcion": "Municipio del norte, con tradiciones culturales y paisajes agrícolas.",
     "poblacion": 38000,
     "superficie": 57.74
   },
   {
     "name": "El Rosario",
-    "escudo": "assets/images/escudos/elrosario.png",
-    "bandera": "assets/images/banderas/elrosario.png",
+    "escudo": "assets/images/escudos/rosario.png",
+    "bandera": "assets/images/banderas/rosario.png",
     "descripcion": "Municipio del este, con playas, montañas y entorno residencial.",
     "poblacion": 38000,
     "superficie": 39.43
@@ -617,8 +617,8 @@
   },
   {
     "name": "San Juan de la Rambla",
-    "escudo": "assets/images/escudos/sanjuan.png",
-    "bandera": "assets/images/banderas/sanjuan.png",
+    "escudo": "assets/images/escudos/sanjuanrambla.png",
+    "bandera": "assets/images/banderas/sanjuanrambla.png",
     "descripcion": "Pequeño municipio norteño, con costa escarpada y paisaje agrícola.",
     "poblacion": 5000,
     "superficie": 20.87
@@ -633,8 +633,8 @@
   },
   {
     "name": "Santa Cruz de Tenerife",
-    "escudo": "assets/images/escudos/santacruz.png",
-    "bandera": "assets/images/banderas/santacruz.png",
+    "escudo": "assets/images/escudos/santacruztenerife.png",
+    "bandera": "assets/images/banderas/santacruztenerife.png",
     "descripcion": "Capital de Tenerife, ciudad portuaria y centro económico y cultural de la isla.",
     "poblacion": 205000,
     "superficie": 150.56
@@ -657,16 +657,16 @@
   },
   {
     "name": "El Sauzal",
-    "escudo": "assets/images/escudos/elsauzal.png",
-    "bandera": "assets/images/banderas/elsauzal.png",
+    "escudo": "assets/images/escudos/sauzal.png",
+    "bandera": "assets/images/banderas/sauzal.png",
     "descripcion": "Municipio norteño, con litoral y paisaje agrícola, conocido por viñedos.",
     "poblacion": 9500,
     "superficie": 18.31
   },
   {
     "name": "Los Silos",
-    "escudo": "assets/images/escudos/lossilos.png",
-    "bandera": "assets/images/banderas/lossilos.png",
+    "escudo": "assets/images/escudos/silos.png",
+    "bandera": "assets/images/banderas/silos.png",
     "descripcion": "Municipio noroeste, con litoral volcánico y entorno rural.",
     "poblacion": 5500,
     "superficie": 24.23
@@ -681,8 +681,8 @@
   },
   {
     "name": "El Tanque",
-    "escudo": "assets/images/escudos/eltanque.png",
-    "bandera": "assets/images/banderas/eltanque.png",
+    "escudo": "assets/images/escudos/tanque.png",
+    "bandera": "assets/images/banderas/tanque.jfif",
     "descripcion": "Municipio noroeste, con montañas y litoral volcánico.",
     "poblacion": 5500,
     "superficie": 23.35
@@ -697,14 +697,14 @@
   },
   {
     "name": "La Victoria",
-    "escudo": "assets/images/escudos/lavictoria.png",
-    "bandera": "assets/images/banderas/lavictoria.png",
+    "escudo": "assets/images/escudos/victoria.png",
+    "bandera": "assets/images/banderas/victoria.png",
     "descripcion": "Municipio norte, con entorno agrícola y montañoso.",
     "poblacion": 9000,
     "superficie": 18.36
   },
   {
-    "name": "Vilaflor",
+    "name": "Vilaflor de Chasna",
     "escudo": "assets/images/escudos/vilaflor.png",
     "bandera": "assets/images/banderas/vilaflor.png",
     "descripcion": "Municipio más alto de Tenerife, con paisaje volcánico y pinar emblemático.",
