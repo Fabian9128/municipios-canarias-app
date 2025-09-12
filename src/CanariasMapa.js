@@ -12,8 +12,8 @@ export default function CanariasMapa()
 
   const baseViewBox = { x: -150, y: -50, width: 1100, height: 500 };
 
-  const handleZoomIn = () => setZoom(z => Math.min(z * 1.2, 5));
-  const handleZoomOut = () => setZoom(z => Math.max(z / 1.2, 1));
+  const handleZoomIn = () => setZoom((z) => Math.min(z * 1.2, 5));
+  const handleZoomOut = () => setZoom((z) => Math.max(z / 1.2, 1));
 
   // Tamaño del viewBox actual según zoom
   const vbWidth = baseViewBox.width / zoom;
@@ -21,7 +21,6 @@ export default function CanariasMapa()
 
   // Limites máximos para offset
   const shiftX = 20;
-
   const maxOffsetX = (baseViewBox.width - vbWidth) / 2 + shiftX;
   const minOffsetX = -(baseViewBox.width - vbWidth) / 2 + shiftX;
   const maxOffsetY = (baseViewBox.height - vbHeight) / 2;
@@ -72,7 +71,7 @@ export default function CanariasMapa()
               #ffd21f 66.6%,
               #ffd21f 100%
             ) 1
-          `
+          `,
         }}
       >
         <h1>MUNICIPIOS CANARIAS</h1>
@@ -90,8 +89,8 @@ export default function CanariasMapa()
               radial-gradient(circle at 40px 40px, rgba(255,255,255,0.1) 2px, transparent 0)
             `,
             backgroundSize: "60px 60px",
+            position: "relative",
           }}
-
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -120,37 +119,65 @@ export default function CanariasMapa()
             ))}
           </svg>
 
+          {/* Botones de zoom */}
           <div
             style={{
               position: "absolute",
-              top: 120,
+              top: 50,
               left: 10,
               display: "flex",
               flexDirection: "column",
               gap: "4px",
             }}
           >
-            <button onClick={handleZoomIn} style={{ padding: "4px 8px" }}>➕ Zoom in</button>
-            <button onClick={handleZoomOut} style={{ padding: "4px 8px" }}>➖ Zoom out</button>
+            <button onClick={handleZoomIn} style={{ padding: "4px 8px" }}>
+              ➕ Zoom in
+            </button>
+            <button onClick={handleZoomOut} style={{ padding: "4px 8px" }}>
+              ➖ Zoom out
+            </button>
           </div>
-        </div>
 
-        <aside
-          style={{
-            width: "250px",
-            padding: "16px",
-            borderLeft: "1px solid #ddd",
-            background: "#f9f9f9",
-            color: "#031069ff",
-          }}
-        >
-          <h2>Información</h2>
-          {selected ? (
-            <p>Has seleccionado: <b>{selected}</b></p>
-          ) : (
-            <p>Haz click en un municipio</p>
+          {/* Popup flotante */}
+          {selected && (
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                background: "#fff",
+                padding: "20px",
+                borderRadius: "12px",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+                zIndex: 10,
+                minWidth: "250px",
+                textAlign: "center",
+              }}
+            >
+              <h2 style={{ margin: "0 0 10px 0", color: "#031069ff" }}>
+                {selected}
+              </h2>
+              <p>
+                Información
+              </p>
+              <button
+                onClick={() => setSelected(null)}
+                style={{
+                  marginTop: "10px",
+                  padding: "6px 12px",
+                  border: "none",
+                  borderRadius: "8px",
+                  background: "#2997df",
+                  color: "#fff",
+                  cursor: "pointer",
+                }}
+              >
+                Cerrar
+              </button>
+            </div>
           )}
-        </aside>
+        </div>
       </main>
     </div>
   );
