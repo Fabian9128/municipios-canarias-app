@@ -1,6 +1,7 @@
-import CanariasMapa from "./CanariasMapa";
+import CanariasMapa from "./pages/CanariasMapa";
 
-function App() {
+function App()
+{
   return (
     <div className="App">
       <CanariasMapa />
