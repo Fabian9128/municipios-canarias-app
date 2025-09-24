@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 export default function MunicipioPopup({
   municipio,
@@ -10,9 +10,21 @@ export default function MunicipioPopup({
   isMobile = false,
 }) {
   const popupRef = useRef(null);
+  const fileInputRef = useRef(null);
+
   const [isDragging, setIsDragging] = useState(false);
   const [startDrag, setStartDrag] = useState({ x: 0, y: 0 });
   const [modalOffset, setModalOffset] = useState({ x: 0, y: 0 });
+  const [foto, setFoto] = useState(null);
+
+  // 🔹 Cargar foto de localStorage al abrir popup
+  useEffect(() => {
+    if (municipio) {
+      const savedFoto = localStorage.getItem(`foto_${municipio.name}`);
+      if (savedFoto) setFoto(savedFoto);
+      else setFoto(null);
+    }
+  }, [municipio]);
 
   const handleMouseDownModal = (e) => {
     setIsDragging(true);
@@ -29,6 +41,19 @@ export default function MunicipioPopup({
   };
 
   const handleMouseUpModal = () => setIsDragging(false);
+
+  // 🔹 Al seleccionar foto
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setFoto(reader.result);
+      localStorage.setItem(`foto_${municipio.name}`, reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   if (!municipio) return null;
 
@@ -133,24 +158,51 @@ export default function MunicipioPopup({
             : "Marcar como visitado"}
         </button>
 
-        <button
-          onClick={() => toggleVisited(municipio.name)}
-          style={{
-            marginTop: "8px",
-            padding: "6px 12px",
-            width: "100%",
-            backgroundColor: visited.includes(municipio.name)
-              ? "#28a745"
-              : "#007bff",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontSize: "1rem",
-          }}
-        >
-          {visited.includes(municipio.name) ? "Visitado ✅" : "Añadir foto"}
-        </button>
+        {/* 🔹 Botón para subir foto */}
+        {visited.includes(municipio.name) && (
+          <button
+            onClick={() => fileInputRef.current.click()}
+            style={{
+              marginTop: "8px",
+              padding: "6px 12px",
+              width: "100%",
+              backgroundColor: "#ff9800",
+              color: "#fff",
+              border: "none",
+              borderRadius: "4px",
+              cursor: "pointer",
+              fontSize: "1rem",
+            }}
+          >
+            {foto ? "Cambiar foto 📷" : "Añadir foto"}
+          </button>
+        )}
+
+        {/* input oculto */}
+        <input
+          type="file"
+          ref={fileInputRef}
+          accept="image/*"
+          style={{ display: "none" }}
+          onChange={handleFileChange}
+        />
+
+        {/* mostrar la foto si existe */}
+        {foto && (
+          <div style={{ marginTop: "12px", display: "flex", justifyContent: "center" }}>
+            <img
+              src={foto}
+              alt={`Foto de ${municipio.name}`}
+              style={{
+                width: "100%",          // ocupa todo el ancho disponible
+                maxWidth: "250px",      // ancho máximo fijo
+                maxHeight: "200px",     // altura máxima fija
+                objectFit: "contain",
+                borderRadius: "6px",
+              }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

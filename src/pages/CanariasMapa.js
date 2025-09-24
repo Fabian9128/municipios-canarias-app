@@ -13,7 +13,7 @@ export default function CanariasMapa()
 
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
-      <header style={{ padding: "8px", background: "#ffd21fa5", textAlign: "center" }}>
+      <header style={{ padding: "8px", color: "#031069ff", background: "#ffd21fa5", textAlign: "center", borderBottom: "8px solid", borderImage: "linear-gradient(to right,#fff 0%,#fff 33.3%,#2997df 33.3%,#2997df 66.6%,#ffd21f 66.6%,#ffd21f 100%) 1" }}>
         <h1>MUNICIPIOS CANARIAS</h1>
       </header>
 
