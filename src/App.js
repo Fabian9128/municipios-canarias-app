@@ -7,12 +7,16 @@ export default function App()
 {
   return (
     <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<CanariasMapa />} />
-        <Route path="/mapa" element={<CanariasMapa />} />
-        <Route path="/pasaporte" element={<Pasaporte />} />
-      </Routes>
+      <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+        <Header />
+        <main style={{ flex: 1, display: "flex" }}>
+          <Routes>
+            <Route path="/" element={<CanariasMapa />} />
+            <Route path="/mapa" element={<CanariasMapa />} />
+            <Route path="/pasaporte" element={<Pasaporte />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 }
