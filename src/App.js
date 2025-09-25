@@ -1,12 +1,18 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 import CanariasMapa from "./pages/CanariasMapa";
+import Pasaporte from "./pages/Pasaporte";
 
-function App()
+export default function App()
 {
   return (
-    <div className="App">
-      <CanariasMapa />
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<CanariasMapa />} />
+        <Route path="/mapa" element={<CanariasMapa />} />
+        <Route path="/pasaporte" element={<Pasaporte />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
