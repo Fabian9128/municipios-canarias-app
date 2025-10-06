@@ -5,6 +5,11 @@ export default function Header({ onToggleMenu })
   return (
     <header
       style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 1000,
         padding: "8px",
         color: "#031069ff",
         background: "#ffd21fa5",
