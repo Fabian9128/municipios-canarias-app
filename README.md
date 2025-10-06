@@ -79,6 +79,17 @@ The code is designed to demonstrate React and SVG development best practices.
 
 ---
 
+🌍 Demo pública / Public demo
+
+Puedes probar la aplicación directamente aquí 👇
+You can try the live demo here 👇
+
+🔗 https://municipios-canarias.netlify.app
+
+(Versión sin conexión a servidor ni datos reales — solo para demostración de la interfaz / No backend or real data — interface demo only)
+
+---
+
 ## 👨‍💻 Autor / Author
 
 Fabián González Suárez
