@@ -29,10 +29,10 @@ export default function CanariasMapa()
                 key={m.name}
                 d={m.path}
                 fill={
-                  visited.includes(m.name)
-                    ? "#28a745"
-                    : selected === m.name
+                  selected === m.name
                     ? "#FFD21F"
+                    : visited.includes(m.name)
+                    ? "#28a745"
                     : "#cce"
                 }
                 stroke="#336"

@@ -48,14 +48,6 @@
     "superficie": 275.94
   },
   {
-    "name": "Isla de Lobos",
-    "escudo": "assets/images/escudos/pajara.png",
-    "bandera": "assets/images/banderas/pajara.png",
-    "descripcion": "Municipio más grande de Canarias en superficie.",
-    "poblacion": 21000,
-    "superficie": 383
-  },
-  {
     "name": "Arrecife",
     "escudo": "assets/images/escudos/arrecife.png",
     "bandera": "assets/images/banderas/arrecife.png",

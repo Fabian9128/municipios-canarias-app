@@ -9,7 +9,7 @@ export default function App()
     <Router>
       <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <Header />
-        <main style={{ flex: 1, display: "flex" }}>
+        <main style={{ flex: 1, display: "flex", paddingTop: "58px" }}>
           <Routes>
             <Route path="/" element={<CanariasMapa />} />
             <Route path="/mapa" element={<CanariasMapa />} />
