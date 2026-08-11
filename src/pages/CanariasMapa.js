@@ -46,6 +46,8 @@ export default function CanariasMapa() {
         flexDirection: "column",
         background: "#0096c7",
         minHeight: 0,
+        paddingBottom: "95px",
+        boxSizing: "border-box",
       }}
     >
       <div
@@ -55,7 +57,7 @@ export default function CanariasMapa() {
           flexWrap: "wrap",
           gap: "8px",
           padding: "12px",
-          background: "#fff",
+          background: "#f1d763ff",
         }}
       >
         {islas.map((isla) => (
@@ -76,7 +78,7 @@ export default function CanariasMapa() {
               background:
                 selectedIsla === isla.name
                   ? "#0096c7"
-                  : "#e9ecef",
+                  : "rgba(255, 255, 255, 0.65)",
 
               color:
                 selectedIsla === isla.name
@@ -123,7 +125,8 @@ export default function CanariasMapa() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "20px",
+          padding: "20px 20px 10px",
+          boxSizing: "border-box",
         }}
       >
         {islaActual && (
@@ -135,7 +138,7 @@ export default function CanariasMapa() {
               width: "100%",
               height: "100%",
               maxWidth: "900px",
-              maxHeight: "700px",
+              maxHeight: "620px",
             }}
           >
             <g ref={islaRef}>

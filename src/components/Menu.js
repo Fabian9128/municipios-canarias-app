@@ -1,86 +1,85 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Menu()
-{
+export default function Menu() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [open, setOpen] = useState(false);
-  const [active, setActive] = useState("MAPA");
 
-  const toggleMenu = () => setOpen(!open);
-
-  const handleClick = (option) => {
-    setActive(option);
-    if (option === "MAPA") navigate("/mapa");
-    else if (option === "PASAPORTE") navigate("/pasaporte");
-    setOpen(false);
-  };
-
-  useEffect(() => {
-    setActive(location.pathname === "/pasaporte" ? "PASAPORTE" : "MAPA");
-  }, [location.pathname]);
+  const isMapa = location.pathname !== "/pasaporte";
+  const isPasaporte = location.pathname === "/pasaporte";
 
   return (
-    <div>
+    <nav
+      style={{
+        position: "fixed",
+        bottom: "12px",
+        left: "50%",
+        transform: "translateX(-50%)",
+        zIndex: 1000,
+
+        display: "flex",
+        alignItems: "center",
+        gap: "6px",
+
+        width: "calc(100% - 24px)",
+        maxWidth: "360px",
+
+        padding: "6px",
+
+        background: "rgba(255,255,255,0.94)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+
+        borderRadius: "22px",
+
+        boxShadow: "0 6px 25px rgba(0,0,0,0.18)",
+      }}
+    >
       <button
         type="button"
-        onClick={toggleMenu}
-        style={{ border: "none", background: "transparent", cursor: "pointer", fontSize: "1.5rem" }}
+        onClick={() => navigate("/mapa")}
+        style={{
+          ...buttonStyle,
+          background: isMapa ? "#0096c7" : "transparent",
+          color: isMapa ? "#fff" : "#555",
+        }}
       >
-        ☰
+        <span style={{ fontSize: "1.35rem" }}>🗺️</span>
+
+        <span>Mapa</span>
       </button>
 
-      {open && (
-        <section style={{
-          position: "absolute",
-          top: "40px",
-          left: "8px",
-          background: "#fff",
-          border: "1px solid #ccc",
-          borderRadius: "6px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-          padding: "8px",
-          zIndex: 100,
-          display: "flex",
-          flexDirection: "column",
-          gap: "4px",
-        }}>
-          <img src="/municipiosIcon.png" alt="Logo" style={{ width: "60px", height: "60px", marginBottom: "8px" }} />
+      <button
+        type="button"
+        onClick={() => navigate("/pasaporte")}
+        style={{
+          ...buttonStyle,
+          background: isPasaporte ? "#0096c7" : "transparent",
+          color: isPasaporte ? "#fff" : "#555",
+        }}
+      >
+        <span style={{ fontSize: "1.35rem" }}>📘</span>
 
-          <button
-            onClick={() => handleClick("MAPA")}
-            style={{
-              ...menuButtonStyle,
-              backgroundColor: active === "MAPA" ? "#2997df" : "transparent",
-              color: active === "MAPA" ? "#fff" : "#031069ff",
-            }}
-          >
-            MAPA
-          </button>
-          <button
-            onClick={() => handleClick("PASAPORTE")}
-            style={{
-              ...menuButtonStyle,
-              backgroundColor: active === "PASAPORTE" ? "#2997df" : "transparent",
-              color: active === "PASAPORTE" ? "#fff" : "#031069ff",
-            }}
-          >
-            PASAPORTE
-          </button>
-        </section>
-      )}
-    </div>
+        <span>Pasaporte</span>
+      </button>
+    </nav>
   );
 }
 
-const menuButtonStyle = {
-  padding: "12px 12px",
+const buttonStyle = {
+  flex: 1,
   border: "none",
-  background: "transparent",
+  borderRadius: "17px",
+  padding: "8px 14px",
+
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "2px",
+
+  fontSize: "0.75rem",
+  fontWeight: 600,
+
   cursor: "pointer",
-  textAlign: "left",
-  width: "100%",
-  color: "#031069ff",
-  fontSize: "1rem",
+  transition: "all 0.2s ease",
 };

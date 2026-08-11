@@ -1,20 +1,26 @@
 {
-  "short_name": "Municipios Canarias",
-  "name": "Mapa interactivo de municipios de Canarias",
+  "short_name": "Municipios",
+  "name": "Municipios Canarias",
+  "description": "Descubre y marca los municipios de Canarias que has visitado",
+
   "icons": [
     {
-      "src": "municipiosIcon.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "municipiosIcon.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ],
-  "start_url": ".",
+
+  "start_url": "/mapa",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+
+  "theme_color": "#0096C7",
+  "background_color": "#0096C7"
 }
