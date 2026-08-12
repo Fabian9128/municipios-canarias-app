@@ -1,58 +1,40 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 
 export default function MunicipioPopup({
   municipio,
-  visited,
-  toggleVisited,
   onClose,
   headerHeight = 60,
   modalMargin = 20,
   isMobile = false,
 }) {
   const popupRef = useRef(null);
-  const fileInputRef = useRef(null);
 
   const [isDragging, setIsDragging] = useState(false);
   const [startDrag, setStartDrag] = useState({ x: 0, y: 0 });
   const [modalOffset, setModalOffset] = useState({ x: 0, y: 0 });
-  const [foto, setFoto] = useState(null);
-
-  // 🔹 Cargar foto de localStorage al abrir popup
-  useEffect(() => {
-    if (municipio) {
-      const savedFoto = localStorage.getItem(`foto_${municipio.name}`);
-      if (savedFoto) setFoto(savedFoto);
-      else setFoto(null);
-    }
-  }, [municipio]);
 
   const handleMouseDownModal = (e) => {
     setIsDragging(true);
-    setStartDrag({ x: e.clientX - modalOffset.x, y: e.clientY - modalOffset.y });
+
+    setStartDrag({
+      x: e.clientX - modalOffset.x,
+      y: e.clientY - modalOffset.y,
+    });
+
     e.stopPropagation();
   };
 
   const handleMouseMoveModal = (e) => {
     if (!isDragging) return;
+
     setModalOffset({
       x: e.clientX - startDrag.x,
       y: e.clientY - startDrag.y,
     });
   };
 
-  const handleMouseUpModal = () => setIsDragging(false);
-
-  // 🔹 Al seleccionar foto
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setFoto(reader.result);
-      localStorage.setItem(`foto_${municipio.name}`, reader.result);
-    };
-    reader.readAsDataURL(file);
+  const handleMouseUpModal = () => {
+    setIsDragging(false);
   };
 
   if (!municipio) return null;
@@ -79,27 +61,41 @@ export default function MunicipioPopup({
         onMouseLeave={handleMouseUpModal}
         style={{
           position: "absolute",
+
           top: `${headerHeight + modalMargin + modalOffset.y}px`,
+
           left: `calc(50% + ${modalOffset.x}px)`,
+
           transform: "translateX(-50%)",
-          width: isMobile ? "90%" : "300px",
-          maxWidth: isMobile ? "300px" : "400px",
-          maxHeight: isMobile
-            ? `calc(100vh - ${headerHeight + modalMargin * 2}px)`
-            : "80vh",
-          overflowY: "auto",
-          padding: isMobile ? "12px" : "16px",
-          border: "1px solid #ddd",
-          background: "#e0dedeff",
-          color: "#031069ff",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-          borderRadius: "8px",
+
+          width: isMobile ? "84%" : "285px",
+          maxWidth: "310px",
+
+          padding: isMobile ? "12px" : "14px",
+
+          border: "1px solid rgba(255,255,255,0.5)",
+
+          background: "#FFF6CC",
+
+          color: "#031069",
+
+          boxShadow: "0 8px 30px rgba(0,0,0,0.25)",
+
+          borderRadius: "16px",
+
           zIndex: 10,
+
           boxSizing: "border-box",
+
           cursor: "move",
         }}
       >
-        <h2 style={{ fontSize: "1.2rem", marginBottom: "8px" }}>
+        <h2
+          style={{
+            fontSize: "1.25rem",
+            margin: "0 0 10px",
+          }}
+        >
           {municipio.name}
         </h2>
 
@@ -107,98 +103,109 @@ export default function MunicipioPopup({
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "8px",
-            flexWrap: "wrap",
+            gap: "10px",
+            marginBottom: "10px",
           }}
         >
-          <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
+          <div
+            style={{
+              width: "55px",
+              height: "55px",
+              flexShrink: 0,
+            }}
+          >
             <img
               src={municipio.escudo}
               alt={`Escudo de ${municipio.name}`}
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+              }}
             />
           </div>
-          <div style={{ width: "60px", height: "60px", flexShrink: 0 }}>
+
+          <div
+            style={{
+              width: "55px",
+              height: "55px",
+              flexShrink: 0,
+            }}
+          >
             <img
               src={municipio.bandera}
               alt={`Bandera de ${municipio.name}`}
-              style={{ width: "100%", height: "100%", objectFit: "contain" }}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+              }}
             />
           </div>
         </div>
 
-        <p style={{ marginTop: "8px", fontSize: "0.9rem" }}>
+        <p
+          style={{
+            margin: "6px 0 10px",
+            fontSize: "0.85rem",
+            lineHeight: 1.35,
+          }}
+        >
           {municipio.descripcion}
         </p>
-        <p style={{ fontSize: "0.9rem" }}>
+
+        <p
+          style={{
+            fontSize: "0.85rem",
+            margin: "0 0 4px",
+          }}
+        >
           <b>Población:</b> {municipio.poblacion} habitantes
         </p>
-        <p style={{ fontSize: "0.9rem" }}>
+
+        <p
+          style={{
+            fontSize: "0.85rem",
+            margin: 0,
+          }}
+        >
           <b>Superficie:</b> {municipio.superficie} km²
         </p>
 
-        <button
-          onClick={() => toggleVisited(municipio.name)}
+        <div
           style={{
-            marginTop: "8px",
-            padding: "6px 12px",
-            width: "100%",
-            backgroundColor: visited.includes(municipio.name)
-              ? "#28a745"
-              : "#007bff",
+            marginTop: "10px",
+            padding: "7px 10px",
+            background: municipio.visitado ? "#28a745" : "#8a939b",
             color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            fontSize: "1rem",
+            borderRadius: "10px",
+            textAlign: "center",
+            fontWeight: 600,
+            fontSize: "0.9rem",
           }}
         >
-          {visited.includes(municipio.name)
-            ? "Visitado ✅"
-            : "Marcar como visitado"}
-        </button>
+          {municipio.visitado ? "Visitado ✓" : "No visitado"}
+        </div>
 
-        {/* 🔹 Botón para subir foto */}
-        {visited.includes(municipio.name) && (
-          <button
-            onClick={() => fileInputRef.current.click()}
+        {municipio.foto && (
+          <div
             style={{
-              marginTop: "8px",
-              padding: "6px 12px",
+              marginTop: "12px",
+              display: "flex",
+              justifyContent: "center",
               width: "100%",
-              backgroundColor: "#ff9800",
-              color: "#fff",
-              border: "none",
-              borderRadius: "4px",
-              cursor: "pointer",
-              fontSize: "1rem",
             }}
           >
-            {foto ? "Cambiar foto 📷" : "Añadir foto"}
-          </button>
-        )}
-
-        {/* input oculto */}
-        <input
-          type="file"
-          ref={fileInputRef}
-          accept="image/*"
-          style={{ display: "none" }}
-          onChange={handleFileChange}
-        />
-
-        {/* mostrar la foto si existe */}
-        {foto && (
-          <div style={{ marginTop: "12px", display: "flex", justifyContent: "center" }}>
             <img
-              src={foto}
+              src={municipio.foto}
               alt={`Foto de ${municipio.name}`}
               style={{
-                width: "100%",          // ocupa todo el ancho disponible
-                maxWidth: "250px",      // ancho máximo fijo
-                maxHeight: "200px",     // altura máxima fija
+                width: "100%",
+                height: "auto",
+                maxHeight: isMobile ? "210px" : "240px",
                 objectFit: "contain",
-                borderRadius: "6px",
+                borderRadius: "10px",
+                display: "block",
               }}
             />
           </div>

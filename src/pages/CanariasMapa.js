@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 import islas from "../assets/data/municipios-coordenadas.json";
 import municipios from "../assets/data/municipios-datos.json";
-import { useVisitedMunicipios } from "../hooks/useVisitedMunicipios";
 import MunicipioPopup from "../components/MunicipioPopup";
 
 export default function CanariasMapa() {
@@ -11,8 +10,6 @@ export default function CanariasMapa() {
   const [viewBox, setViewBox] = useState("0 0 100 100");
 
   const islaRef = useRef(null);
-
-  const { visited, toggleVisited } = useVisitedMunicipios();
 
   const islaActual = islas.find(
     (isla) => isla.name === selectedIsla
@@ -34,9 +31,13 @@ export default function CanariasMapa() {
   }, [selectedIsla]);
 
   const visitadosIsla =
-    islaActual?.municipios.filter((m) =>
-      visited.includes(m.name)
-    ).length ?? 0;
+    islaActual?.municipios.filter((m) => {
+      const municipioDatos = municipios.find(
+        (municipio) => municipio.name === m.name
+      );
+
+      return municipioDatos?.visitado === true;
+    }).length ?? 0;
 
   return (
     <div
@@ -143,27 +144,36 @@ export default function CanariasMapa() {
           >
             <g ref={islaRef}>
               <g transform={islaActual.transform}>
-                {islaActual.municipios.map((m) => (
-                  <path
-                    key={m.name}
-                    d={m.path}
-                    fill={
-                      selected === m.name
-                        ? "#FFD21F"
-                        : visited.includes(m.name)
-                        ? "#28a745"
-                        : "#cce"
-                    }
-                    stroke="#336"
-                    strokeWidth="2"
-                    vectorEffect="non-scaling-stroke"
-                    onClick={() => setSelected(m.name)}
-                    style={{
-                      cursor: "pointer",
-                      transition: "fill 0.15s ease",
-                    }}
-                  />
-                ))}
+                {islaActual.municipios.map((m) => {
+                  const municipioDatos = municipios.find(
+                    (municipio) => municipio.name === m.name
+                  );
+
+                  const visitado =
+                    municipioDatos?.visitado === true;
+
+                  return (
+                    <path
+                      key={m.name}
+                      d={m.path}
+                      fill={
+                        selected === m.name
+                          ? "#FFD21F"
+                          : visitado
+                          ? "#28a745"
+                          : "#cce"
+                      }
+                      stroke="#336"
+                      strokeWidth="2"
+                      vectorEffect="non-scaling-stroke"
+                      onClick={() => setSelected(m.name)}
+                      style={{
+                        cursor: "pointer",
+                        transition: "fill 0.15s ease",
+                      }}
+                    />
+                  );
+                })}
               </g>
             </g>
           </svg>
@@ -175,8 +185,6 @@ export default function CanariasMapa() {
           municipio={municipios.find(
             (m) => m.name === selected
           )}
-          visited={visited}
-          toggleVisited={toggleVisited}
           onClose={() => setSelected(null)}
         />
       )}
