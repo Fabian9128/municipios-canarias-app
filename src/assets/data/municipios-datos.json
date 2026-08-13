@@ -286,8 +286,8 @@
     "descripcion": "Municipio de montaña, famoso por el Roque Nublo y sus almendros en flor.",
     "poblacion": 1900,
     "superficie": 103.3,
-    "visitado": false,
-    "foto": ""
+    "visitado": true,
+    "foto": "assets/images/fotos/tejeda.jfif"
   },
   {
     "name": "Telde",
@@ -336,8 +336,8 @@
     "descripcion": "Municipio de interior con fuerte tradición agrícola y mercadillos populares.",
     "poblacion": 7400,
     "superficie": 37.9,
-    "visitado": false,
-    "foto": ""
+    "visitado": true,
+    "foto": "assets/images/fotos/san-mateo.jfif"
   },
     {
     "name": "Frontera",
